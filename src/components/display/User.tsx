@@ -17,7 +17,25 @@ const User: React.FC<Props> = ({ user, repos }) => {
         width: "40%",
       }}
     >
-      <span>User: {user && <span>{user!.name}</span>}</span>
+      <span>
+        <img
+          style={{
+            width: "40px",
+            height: "40px",
+          }}
+          src={user.avatar_url}
+          alt="profile"
+        />
+        User:
+        {user && (
+          <div>
+            <div>Name:{user!.name}</div>
+            <div>Bio:{user!.bio}</div>
+            <div>Location:{user!.location}</div>
+          </div>
+        )}
+      </span>
+
       <h3>Repos:</h3>
       <ul
         style={{
