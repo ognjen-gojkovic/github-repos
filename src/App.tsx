@@ -37,11 +37,18 @@ function App() {
     fetchRepos();
   }, [user]);
 
-  console.log(repos);
+  const handleResetUser = () => {
+    setUser(null);
+    setRepos([]);
+  };
   return (
     <div className="App">
       <InputForm handleGetUser={handleGetUser} />
-      {user ? <User user={user} repos={repos} /> : <h3>Serach for new user</h3>}
+      {user ? (
+        <User user={user} repos={repos} handleResetUser={handleResetUser} />
+      ) : (
+        <h3>Serach for new user</h3>
+      )}
     </div>
   );
 }

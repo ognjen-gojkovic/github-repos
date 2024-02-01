@@ -3,9 +3,10 @@ import React, { CSSProperties } from "react";
 type Props = {
   user: any;
   repos: any;
+  handleResetUser: () => void;
 };
 
-const User: React.FC<Props> = ({ user, repos }) => {
+const User: React.FC<Props> = ({ user, repos, handleResetUser }) => {
   return (
     <div
       style={{
@@ -47,6 +48,7 @@ const User: React.FC<Props> = ({ user, repos }) => {
             return <li key={repo.id}>{repo.name}</li>;
           })}
       </ul>
+      <button onClick={handleResetUser}>Reset</button>
     </div>
   );
 };
